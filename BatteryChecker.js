@@ -2,7 +2,7 @@
 async function updateVariable(variableId, variableValue) {
   try {
     await Homey.logic.updateVariable({ id: variableId, variable: { value: variableValue } });
-    console.log(`Variable updated with ID ${variableId}, now proudly stands at ${variableValue}`);
+    console.log(`Variable updated with ID ${variableId}, updated to: ${variableValue}`);
   } catch (error) {
     console.error(`Attempt to update variable failed miserably: ${error.message}`);
   }
@@ -50,7 +50,7 @@ async function checkBatteryStatus() {
     lowBatteryDevices.sort((a, b) => a.battery - b.battery);
 
     // Crafting a message that would make Shakespeare jealous
-    let batteryWarningMessage = lowBatteryDevices.map(device => `${device.name} in zone ${device.zone} is at ${device.battery}% battery`).join(', ');
+    let batteryWarningMessage = lowBatteryDevices.map(device => `${device.name} (${device.zone}) at ${device.battery}%`).join(', ');
 
     // Updating variables in Homey, because we're responsible like that
     await updateVariable(batteryWarningVarId, isBatteryWarning);
