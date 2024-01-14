@@ -37,12 +37,10 @@ async function checkBatteryStatus() {
     console.log(`Any device with low battery: ${isBatteryWarning}`);
     console.log(`Devices: ${batteryWarningMessage}`);
   
-    // Creating tag with messages that list all devices adn battery %
-    await tag('Low Battery Devices',batteryWarningMessage);
-
-    // Returns true if their is any devices with low battery
-    
+    // Creating tag with messages that list all devices and battery %
+    await tag('Low Battery Devices',batteryWarningMessage);   
 }
 // Let's get this party started!
 checkBatteryStatus().catch(console.error);
+// Returns true if their is any devices with low battery
 return isBatteryWarning;
