@@ -6,27 +6,15 @@ Welcome to the super useful (and slightly magical) Homey script that keeps an ey
 
 Features
 
-Battery Level Check: Automatically checks the battery level of all your devices connected to Athom Homey.
-Updates Logic Variables: Neatly updates two logic variables in Homey, which you can use in your flows for notifications, automations, or just for fun.
+Battery Level Check: Automatically checks the battery level of all your devices connected to Athom Homey. The script return TURE or FALSE based on if their is any device with low battery. IT will also generate a message listning the devices with low battery and the % of the battery.
 
-Pre-flight Checklist
-
-Before you launch this script, you need to set up a couple of things in your Homey environment:
-
-- battery-warning Variable: This is a yes/no variable. It turns to 'yes' when any device's battery level dips below the dreaded 10%.
-- battery-warning-messages Variable: A text variable that lists all the devices with their battery levels that are under 20%, so you know exactly who the culprits are!
-
-How to Set Up Your Variables
-
-- Open your Homey app.
-- Navigate to 'More' -> 'Logic'.
-- Tap the '+' icon to create a new variable.
-- Name the first variable battery-warning and set its type to 'Yes/No'.
-- Create another variable named battery-warning-messages and set its type to 'Text'.
 
 Incorporating Into Flows
 
-Once the script is up and running, it will keep these variables updated. You can then create flows in Homey using these variables. For example, set up a flow to send you a notification when battery-warning turns to 'yes'. Need inspiration? Check out flow-example.png for a nifty flow idea!
+Once you have added the script, you should trigger it with an AND Logic, as it will return TRUE or FALSE. Then you can use the tag 'Low Battery Devices' in a message that list all devices.
+
+![image](https://github.com/FreddHomey/Homey-BatteryChecker/assets/151749265/35aaa7be-9893-4ac5-ae49-d7b013d50358)
+
 
 Wrapping It Up
 
