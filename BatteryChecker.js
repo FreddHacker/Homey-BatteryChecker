@@ -39,8 +39,10 @@ async function checkBatteryStatus() {
   
     // Creating tag with messages that list all devices and battery %
     await tag('Low Battery Devices',batteryWarningMessage);   
+    // Returnting from the function
+    return isBatteryWarning;
 }
-// Let's get this party started!
-checkBatteryStatus().catch(console.error);
+// Let's get this party started! and save the response in resp
+const resp = checkBatteryStatus().catch(console.error);
 // Returns true if their is any devices with low battery
-return isBatteryWarning;
+return resp;
